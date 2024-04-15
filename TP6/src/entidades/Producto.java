@@ -8,10 +8,10 @@ public class Producto implements Comparable<Producto> {
     private double precio;
     private Rubro rubro;
     private int stock;
-
+//contructor vacio
     public Producto() {
     }
-
+//contructores
     public Producto(int codigo, String descripcion, double precio, Rubro rubro, int stock) {
         this.codigo = codigo;
         this.descripcion = descripcion;

@@ -85,6 +85,12 @@ private Producto auxiliar=null;
         jlstock.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlstock.setText("Stock");
 
+        jtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCodigoActionPerformed(evt);
+            }
+        });
+
         jtDescripcion.setEnabled(false);
 
         jtPrecio.setEnabled(false);
@@ -236,7 +242,7 @@ private Producto auxiliar=null;
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -357,6 +363,10 @@ private Producto auxiliar=null;
             auxiliar=null;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCodigoActionPerformed
 
     private void llenarCombo(){
     
