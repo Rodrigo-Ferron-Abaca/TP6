@@ -51,7 +51,6 @@ private DefaultTableModel modelo=new DefaultTableModel();
         jlERubro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jlERubro.setText("Elija Rubro:");
 
-        jcCategorias.setBackground(new java.awt.Color(255, 255, 255));
         jcCategorias.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jcCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

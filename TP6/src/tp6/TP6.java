@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tp6;
+package TP6;
 
-/**
- *
- * @author rodrigo
- */
+import Vista.DeTodoSA;
+
 public class TP6 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         DeTodoSA deTodo = new DeTodoSA();
         deTodo.setVisible(true);
