@@ -32,6 +32,7 @@ public class Rubro {
         this.nombre = nombre;
     }
     
+    @Override
     public String toString(){
     
         return nombre;
