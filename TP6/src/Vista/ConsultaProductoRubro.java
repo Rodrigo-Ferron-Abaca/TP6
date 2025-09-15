@@ -80,14 +80,12 @@ private DefaultTableModel modelo=new DefaultTableModel();
         jtLista.setGridColor(new java.awt.Color(51, 51, 51));
         jtLista.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jtLista.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jtLista.setShowHorizontalLines(false);
-        jtLista.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jtLista);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Listado De Productos Por Rubro");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupita.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
