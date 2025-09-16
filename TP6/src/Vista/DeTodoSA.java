@@ -32,33 +32,33 @@ public class DeTodoSA extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg"));
         Image miImagen = icono.getImage();
-        jDesktopPane1 = new javax.swing.JDesktopPane(){
+        Escritorio = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
                 g.drawImage(miImagen,0,0,getWidth(),getHeight(),this);
             }
         };
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuAdministracion = new javax.swing.JMenu();
+        jmiProductos = new javax.swing.JMenuItem();
+        jMenuItemSalir = new javax.swing.JMenuItem();
+        jMenuConsultas = new javax.swing.JMenu();
+        jMenuItemRubro = new javax.swing.JMenuItem();
+        jMenuItemNombre = new javax.swing.JMenuItem();
+        jMenuItemPrecio = new javax.swing.JMenuItem();
 
         jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Productos");
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
+        Escritorio.setLayout(EscritorioLayout);
+        EscritorioLayout.setHorizontalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 805, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        EscritorioLayout.setVerticalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 678, Short.MAX_VALUE)
         );
 
@@ -66,60 +66,60 @@ public class DeTodoSA extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Escritorio)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Escritorio)
         );
 
-        jMenu1.setText("Administracion");
+        jMenuAdministracion.setText("Administracion");
 
-        jMenuItem1.setText("Productos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmiProductos.setText("Productos");
+        jmiProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmiProductosActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuAdministracion.add(jmiProductos);
 
-        jMenuItem6.setText("Salir");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemSalir.setText("Salir");
+        jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMenuItemSalirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenuAdministracion.add(jMenuItemSalir);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuAdministracion);
 
-        jMenu2.setText("Consultas");
+        jMenuConsultas.setText("Consultas");
 
-        jMenuItem2.setText("Por Rubro");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemRubro.setText("Por Rubro");
+        jMenuItemRubro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemRubroActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenuConsultas.add(jMenuItemRubro);
 
-        jMenuItem3.setText("Por Nombre");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemNombre.setText("Por Nombre");
+        jMenuItemNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItemNombreActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenuConsultas.add(jMenuItemNombre);
 
-        jMenuItem4.setText("Por Precio");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPrecio.setText("Por Precio");
+        jMenuItemPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemPrecioActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenuConsultas.add(jMenuItemPrecio);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuConsultas);
 
         setJMenuBar(jMenuBar1);
 
@@ -137,69 +137,69 @@ public class DeTodoSA extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jmiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProductosActionPerformed
         jIfProductos producto = new jIfProductos(productos);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         
         // getWidth/getHeight = ancho/alto en píxeles -> usado para centrar la ventana (use ia para entender esto)
-        x = (jDesktopPane1.getWidth()/2) - (producto.getWidth()/2);
-        y = (jDesktopPane1.getHeight()/2) - (producto.getHeight()/2);
+        x = (Escritorio.getWidth()/2) - (producto.getWidth()/2);
+        y = (Escritorio.getHeight()/2) - (producto.getHeight()/2);
         producto.setLocation(x, y);
         
         producto.setVisible(true);
-        jDesktopPane1.add(producto);
-        jDesktopPane1.moveToFront(producto);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        Escritorio.add(producto);
+        Escritorio.moveToFront(producto);
+    }//GEN-LAST:event_jmiProductosActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItemPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPrecioActionPerformed
         // TODO add your handling code here:
         ConsultaPorPrecio cpp = new ConsultaPorPrecio(productos);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         
-        x = (jDesktopPane1.getWidth()/2) - (cpp.getWidth()/2);
-        y = (jDesktopPane1.getHeight()/2) - (cpp.getHeight()/2);
+        x = (Escritorio.getWidth()/2) - (cpp.getWidth()/2);
+        y = (Escritorio.getHeight()/2) - (cpp.getHeight()/2);
         cpp.setLocation(x, y);
         
         cpp.setVisible(true);
-        jDesktopPane1.add(cpp);
-        jDesktopPane1.moveToFront(cpp);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+        Escritorio.add(cpp);
+        Escritorio.moveToFront(cpp);
+    }//GEN-LAST:event_jMenuItemPrecioActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItemRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRubroActionPerformed
         // TODO add your handling code here:
         ConsultaProductoRubro cpr = new ConsultaProductoRubro(productos);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         
-        x = (jDesktopPane1.getWidth()/2) - (cpr.getWidth()/2);
-        y = (jDesktopPane1.getHeight()/2) - (cpr.getHeight()/2);
+        x = (Escritorio.getWidth()/2) - (cpr.getWidth()/2);
+        y = (Escritorio.getHeight()/2) - (cpr.getHeight()/2);
         cpr.setLocation(x, y);
         
         cpr.setVisible(true);
-        jDesktopPane1.add(cpr);
-        jDesktopPane1.moveToFront(cpr);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        Escritorio.add(cpr);
+        Escritorio.moveToFront(cpr);
+    }//GEN-LAST:event_jMenuItemRubroActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItemNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNombreActionPerformed
         // TODO add your handling code here:
         ListadoNombre ln = new ListadoNombre(productos);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         
-        x = (jDesktopPane1.getWidth()/2) - (ln.getWidth()/2);
-        y = (jDesktopPane1.getHeight()/2) - (ln.getHeight()/2);
+        x = (Escritorio.getWidth()/2) - (ln.getWidth()/2);
+        y = (Escritorio.getHeight()/2) - (ln.getHeight()/2);
         ln.setLocation(x, y);
         
         ln.setVisible(true);
-        jDesktopPane1.add(ln);
-        jDesktopPane1.moveToFront(ln);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        Escritorio.add(ln);
+        Escritorio.moveToFront(ln);
+    }//GEN-LAST:event_jMenuItemNombreActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,16 +236,16 @@ public class DeTodoSA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenu jMenuAdministracion;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenu jMenuConsultas;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItemNombre;
+    private javax.swing.JMenuItem jMenuItemPrecio;
+    private javax.swing.JMenuItem jMenuItemRubro;
+    private javax.swing.JMenuItem jMenuItemSalir;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jmiProductos;
     // End of variables declaration//GEN-END:variables
 }

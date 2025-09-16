@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import entidades.Producto;
 import entidades.Rubro;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +19,7 @@ import entidades.Rubro;
 public class jIfProductos extends javax.swing.JInternalFrame {
 private TreeSet<Producto> productos;
 private Producto auxiliar=null;
+private DefaultTableModel modelo = new DefaultTableModel();
     /**
      * Creates new form jIfProductos
      * @param productos
@@ -28,8 +30,9 @@ private Producto auxiliar=null;
         this.productos=productos;
         llenarCombo();
         llenarComboCategoria();
+        armarCabecera();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,6 +102,11 @@ private Producto auxiliar=null;
 
         jbActualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -134,15 +142,21 @@ private Producto auxiliar=null;
 
         jLabel3.setText("Filtrar por Categoria: ");
 
+        jComboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCategoriaActionPerformed(evt);
+            }
+        });
+
         jTableProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Descripción", "Precio", "Rubro", "Stock"
             }
         ));
         jScrollPane1.setViewportView(jTableProductos);
@@ -311,6 +325,7 @@ private Producto auxiliar=null;
         int codigo;
         if(validaEntero(jtCodigo.getText())){
             codigo = Integer.parseInt(jtCodigo.getText());
+            
         }else {
 
             JOptionPane.showMessageDialog(this, "Ingrese un codigo valido");
@@ -327,6 +342,11 @@ private Producto auxiliar=null;
                 jtStock.setText(prod.getStock()+"");
                 jcRubros.setSelectedItem(prod.getRubro());
                 jbEliminar.setEnabled(true);
+                jbActualizar.setEnabled(true);
+                jtDescripcion.setEnabled(true);
+                jtPrecio.setEnabled(true);
+                jcRubros.setEnabled(true);
+                jtStock.setEnabled(true);
                 auxiliar=prod;
                 return;
 
@@ -350,13 +370,12 @@ private Producto auxiliar=null;
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // validar los datos, crear un nuevo producto ,agregar al conjunto. mostrar mensaje de éxito o error.
-        
         int codigo;
         String descripcion;
         double precio;
         Rubro rubro;
         int stock;
-
+        
         if(validaEntero(jtCodigo.getText())){
             codigo = Integer.parseInt(jtCodigo.getText());
         }else {
@@ -400,7 +419,7 @@ private Producto auxiliar=null;
             return;
         }
 
-        Producto nvoProd=new Producto(codigo,descripcion,precio,rubro,stock);
+        Producto nvoProd = new Producto(codigo,descripcion,precio,rubro,stock);
         if(productos.add(nvoProd)){
             JOptionPane.showMessageDialog(this, "Producto Agregado");
             limpiar();
@@ -417,7 +436,7 @@ private Producto auxiliar=null;
             JOptionPane.showMessageDialog(this, "Producto Eliminado ");
             limpiar();
             auxiliar=null;
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
@@ -425,6 +444,53 @@ private Producto auxiliar=null;
         limpiar();
     }//GEN-LAST:event_jButtonCerrarActionPerformed
 
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        // TODO add your handling code here:
+        int confirmacion = JOptionPane.showConfirmDialog(this, "¿Desea actualizar producto?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+        if(confirmacion == JOptionPane.YES_OPTION){
+            
+            for (Producto aux : productos) {
+                aux.setDescripcion(jtDescripcion.getText());
+                aux.setPrecio(Double.parseDouble(jtPrecio.getText()));
+                aux.setRubro((Rubro) jcRubros.getSelectedItem());
+                aux.setStock(Integer.parseInt(jtStock.getText()));   
+            }
+            
+        }
+        
+        JOptionPane.showMessageDialog(this, "Producto actualizado");
+
+    }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
+        // TODO add your handling code here:
+        Rubro rubro=(Rubro)jComboBoxCategoria.getSelectedItem();
+        
+        for(Producto prod:productos){
+        
+            if(rubro.equals(prod.getRubro())){
+              
+                modelo.addRow(new Object[]{
+                                       prod.getCodigo(),
+                                       prod.getDescripcion(),
+                                       prod.getPrecio(),
+                                       prod.getStock(),
+                                       prod.getRubro(),
+                });  
+
+            }
+        }
+        
+    }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
+    private void armarCabecera(){
+       
+         modelo.addColumn("Codigo");
+         modelo.addColumn("Descripcion");
+         modelo.addColumn("Precio");
+         modelo.addColumn("Stock");
+         modelo.addColumn("Rubro");
+         jTableProductos.setModel(modelo);
+     }
     private void llenarCombo(){
         //llenar el combo de rubros con Comestible, Limpieza y Perfumeria.
         Rubro comestible = new Rubro(1,"Comestible");
@@ -438,7 +504,7 @@ private Producto auxiliar=null;
         
     }
     private void llenarComboCategoria(){
-        //llenar el combo de rubros con Comestible, Limpieza y Perfumeria.
+        //llenar el comboBox de Filtrar por Categoria con Comestible, Limpieza y Perfumeria.
         Rubro comestible = new Rubro(1,"Comestible");
         Rubro limpieza = new Rubro(2,"Limpieza");
         Rubro perfumeria = new Rubro(3,"Perfumeria");
@@ -464,7 +530,6 @@ private Producto auxiliar=null;
     }
     
     private void limpiar(){
-    
         jtCodigo.setText("");
         jtDescripcion.setText("");
         jtPrecio.setText("");

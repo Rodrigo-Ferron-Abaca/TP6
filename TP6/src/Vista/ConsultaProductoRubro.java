@@ -6,7 +6,6 @@
 package Vista;
 
 import java.util.TreeSet;
-import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import entidades.Producto;
 import entidades.Rubro;
@@ -130,20 +129,17 @@ private DefaultTableModel modelo=new DefaultTableModel();
         
             if(rubro.equals(prod.getRubro())){
                             
-              Vector renglon=new Vector<>();
-              renglon.add(prod.getCodigo());
-              renglon.add(prod.getDescripcion());
-              renglon.add(prod.getPrecio());
-              renglon.add(prod.getStock());
-              renglon.add(prod.getRubro());
-
-              modelo.addRow(renglon);
-            }
+              modelo.addRow(new Object[]{
+                                        prod.getCodigo(),
+                                        prod.getDescripcion(),
+                                        prod.getPrecio(),
+                                        prod.getStock(),
+                                        prod.getRubro(),
+              });
         }
         
-        
+        }   
     }//GEN-LAST:event_jcCategoriasActionPerformed
-
 
      private void llenarCombo(){
     

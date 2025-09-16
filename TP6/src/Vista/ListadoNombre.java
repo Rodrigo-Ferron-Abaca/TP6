@@ -4,9 +4,7 @@
  */
 package Vista;
 
-import java.awt.Color;
 import java.util.TreeSet;
-import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import entidades.Producto;
 
@@ -16,9 +14,10 @@ import entidades.Producto;
  */
 public class ListadoNombre extends javax.swing.JInternalFrame {
 private TreeSet<Producto> productos;
-private DefaultTableModel modelo=new DefaultTableModel();
+private DefaultTableModel modelo = new DefaultTableModel();
     /**
      * Creates new form ListadoNombre
+     * @param productos
      */
     public ListadoNombre(TreeSet<Producto> productos) {
         initComponents();
@@ -124,16 +123,14 @@ private DefaultTableModel modelo=new DefaultTableModel();
          
             if(prod.getDescripcion().toLowerCase().startsWith(find)){
             
-                Vector renglon=new Vector();
-                renglon.add(prod.getCodigo());
-                renglon.add(prod.getDescripcion());
-                renglon.add(prod.getPrecio());
-                renglon.add(prod.getStock());
-                renglon.add(prod.getRubro());
-                modelo.addRow(renglon);
-                
-            }
-            
+                modelo.addRow(new Object[]{
+                                           prod.getCodigo(),
+                                           prod.getDescripcion(),
+                                           prod.getPrecio(),
+                                           prod.getStock(),
+                                           prod.getRubro(), 
+                });    
+            } 
         }
     }//GEN-LAST:event_jtfCaracteresBuscarKeyReleased
 
