@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Rodrigo
+ * @author grupo2
  */
 public class ConsultaPorPrecio extends javax.swing.JInternalFrame {
 private TreeSet<Producto> productos;

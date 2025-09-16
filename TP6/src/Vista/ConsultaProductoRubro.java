@@ -13,7 +13,7 @@ import entidades.Rubro;
 
 /**
  *
- * @author Rodrigo
+ * @author Grupo2
  */
 public class ConsultaProductoRubro extends javax.swing.JInternalFrame {
 private TreeSet<Producto> productos;

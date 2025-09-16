@@ -15,7 +15,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 /**
  *
- * @author Rodrigo
+ * @author Grupo2
  */
 public class jIfProductos extends javax.swing.JInternalFrame {
 private TreeSet<Producto> productos;
