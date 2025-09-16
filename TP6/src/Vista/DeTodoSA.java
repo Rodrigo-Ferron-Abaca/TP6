@@ -30,7 +30,7 @@ public class DeTodoSA extends javax.swing.JFrame {
 
         jMenuItem5 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"));
         Image miImagen = icono.getImage();
         Escritorio = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
